@@ -43,7 +43,10 @@ class History extends React.Component {
 						{today}
 					</Text>
 				</View>
-				: <TouchableOpacity onPress = {() => console.log("Pressed!")}>
+				: <TouchableOpacity onPress = {() => this.props.navigation.navigate(
+						'EntryDetail',
+						{ entryId: key }
+					)}>
 					<MetricCard date = {formattedDate} metrics = {metrics}/>
 				</TouchableOpacity>
 			}
@@ -64,7 +67,7 @@ class History extends React.Component {
 
 	render() {
 
-		const { entries } = this.props;
+		const { entries, navigation } = this.props;
 		const { ready } = this.state;
 
 		if (ready === false) {
