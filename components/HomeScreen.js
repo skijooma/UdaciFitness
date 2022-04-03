@@ -1,11 +1,11 @@
 import { FontAwesome, Ionicons } from "@expo/vector-icons";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
-import { Platform } from "react-native";
 import React from 'react';
+import { Platform } from "react-native";
 import { purple, white } from "../utils/colors";
-import History from "./History";
 import AddEntry from "./AddEntry";
+import History from "./History";
 
 
 const Tab =

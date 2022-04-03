@@ -11,6 +11,7 @@
     "@react-navigation/bottom-tabs": "^6.2.0",
     "@react-navigation/material-top-tabs": "^6.1.1",
     "@react-navigation/native": "^6.0.8",
+    "@react-navigation/native-stack": "^6.6.1",
     "expo": "~42.0.1",
     "expo-app-loading": "1.1.2",
     "expo-splash-screen": "~0.11.4",
