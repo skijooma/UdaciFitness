@@ -11,6 +11,7 @@ import { submitEntry, removeEntry } from "../utils/api";
 import { connect } from 'react-redux';
 import { addEntry } from '../actions';
 import { white, purple} from "../utils/colors";
+import { CommonActions } from '@react-navigation/native';
 
 
 function SubmitButton ({onPress}) {
@@ -88,6 +89,7 @@ class AddEntry extends Component {
 		}))
 
 		// Navigate to home
+		this.toHome();
 
 		// Save to 'database'
 		submitEntry(key, entry);
@@ -105,10 +107,15 @@ class AddEntry extends Component {
 		}))
 
 		// Navigate to home
+		this.toHome();
 
 		// Save to 'database'
 		removeEntry(key);
 
+	}
+
+	toHome = () => {
+		this.props.navigation.dispatch(CommonActions.goBack());
 	}
 
 	render () {
