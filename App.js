@@ -8,7 +8,7 @@ import reducer from './reducers';
 import { purple } from './utils/colors';
 
 
-function UdaciStatusBar ({ backgroundColor, ...props }) {
+export function UdaciStatusBar ({ backgroundColor, ...props }) {
 
 	return (
 		<View style={{ backgroundColor, height: Constants.statusBarHeight }}>
@@ -27,8 +27,9 @@ export default function App() {
 
 	return (
 		<Provider store = {createStore(reducer)}>
-				<UdaciStatusBar backgroundColor={ purple } barStyle="light-content" />
+			<View style={{flex: 1}}>
 				<Navigation />
+			</View>
 		</Provider>
 	);
 }

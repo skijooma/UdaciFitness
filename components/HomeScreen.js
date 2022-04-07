@@ -6,6 +6,7 @@ import { Platform } from "react-native";
 import { purple, white } from "../utils/colors";
 import AddEntry from "./AddEntry";
 import History from "./History";
+import { Live } from "./Live";
 
 
 const Tab =
@@ -20,10 +21,12 @@ const HomeScreen = () => {
 			screenOptions = {({ route }) => ({
 				tabBarIcon: ({ color, size }) => {
 					let icon;
-					if (route.name === 'Add Entry') {
+					if (route.name === 'AddEntry') {
 						icon = (<FontAwesome name = 'plus-square' size = {size} color = {color}/>)
 					} else if (route.name === 'History') {
 						icon = (<Ionicons name = 'ios-bookmarks' size = {size} color = {color}/>)
+					} else if (route.name === 'Live') {
+						icon = (<Ionicons name = 'speedometer' size = {size} color = {color}/>)
 					}
 
 					return icon;
@@ -38,6 +41,16 @@ const HomeScreen = () => {
 		>
 			<Tab.Screen name="History" component={History}/>
 			<Tab.Screen name="AddEntry" component={AddEntry}/>
+			<Tab.Screen
+				name="Live"
+				component={Live}
+				options={{
+					headerTintColor: white,
+					headerStyle: {
+						backgroundColor: purple,
+					}
+				}}
+			/>
 		</Tab.Navigator>
 	)
 }

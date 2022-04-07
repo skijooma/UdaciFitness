@@ -6,6 +6,7 @@ import { Platform } from "react-native";
 import { purple, white } from "../../utils/colors";
 import EntryDetail from "../EntryDetail";
 import HomeScreen from "../HomeScreen";
+import { Live } from "../Live";
 
 
 const Stack = createNativeStackNavigator();
