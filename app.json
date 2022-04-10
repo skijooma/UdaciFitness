@@ -1,8 +1,12 @@
 {
   "expo": {
+    "sdkVersion": "42.0.0",
+    "orientation": "portrait",
     "name": "UdaciFitness",
+    "description": "The best triathlon training app in the world.",
     "slug": "UdaciFitness",
     "version": "1.0.0",
+    "icon": "https://maxcdn.icons8.com/Color/PNG/512/Sports/triathlon-512.png",
     "assetBundlePatterns": [
       "**/*"
     ],
@@ -18,6 +22,12 @@
           ]
         }
       ]
-    ]
+    ],
+    "ios": {
+      "bundleIdentifier": "org.udacifitness.exp"
+    },
+    "android": {
+      "package": "org.udacifitness.exp"
+    }
   }
 }
