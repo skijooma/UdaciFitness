@@ -1,17 +1,22 @@
-
-import React, { Component } from 'react';
-import { View, Text, TouchableOpacity, Platform, StyleSheet } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import { getMetricMetaInfo, timeToString, getDailyReminderValue } from "../utils/helpers";
-import DateHeader from "./DateHeader";
-import UdaciSlider from "./UdaciSlider";
-import UdaciSteppers from "./UdaciSteppers";
-import TextButton from "./TextButton";
-import { submitEntry, removeEntry } from "../utils/api";
+import { CommonActions } from '@react-navigation/native';
+import React, { Component } from 'react';
+import { Platform, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { connect } from 'react-redux';
 import { addEntry } from '../actions';
-import { white, purple} from "../utils/colors";
-import { CommonActions } from '@react-navigation/native';
+import { removeEntry, submitEntry } from "../utils/api";
+import { purple, white } from "../utils/colors";
+import {
+	getDailyReminderValue,
+	getMetricMetaInfo,
+	timeToString,
+	clearLocalNotification,
+	setLocalNotification,
+} from "../utils/helpers";
+import DateHeader from "./DateHeader";
+import TextButton from "./TextButton";
+import UdaciSlider from "./UdaciSlider";
+import UdaciSteppers from "./UdaciSteppers";
 
 
 function SubmitButton ({onPress}) {
@@ -88,13 +93,14 @@ class AddEntry extends Component {
 			'sleep': 0
 		}))
 
-		// Navigate to home
-		this.toHome();
+		this.toHome(); // Navigating to home.
 
-		// Save to 'database'
-		submitEntry(key, entry);
+		submitEntry(key, entry); // Save to 'database'
 
-		// Clear local notification
+		// Clearing local notification.
+		clearLocalNotification()
+			.then(setLocalNotification)
+
 	}
 
 	reset = () => {

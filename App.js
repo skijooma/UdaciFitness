@@ -1,3 +1,4 @@
+import * as Notifications from "expo-notifications";
 import React, { useEffect } from 'react';
 import { StatusBar, View } from 'react-native';
 import { Constants } from "react-native-unimodules";
@@ -6,6 +7,7 @@ import { createStore } from 'redux';
 import Navigation from "./components/navigation";
 import reducer from './reducers';
 import { purple } from './utils/colors';
+import { setLocalNotification } from "./utils/helpers";
 
 
 export function UdaciStatusBar ({ backgroundColor, ...props }) {
@@ -17,12 +19,25 @@ export function UdaciStatusBar ({ backgroundColor, ...props }) {
 	)
 }
 
+Notifications.setNotificationHandler({
+	handleNotification: async () => ({
+		shouldShowAlert: true,
+		shouldPlaySound: false,
+		shouldSetBadge: false,
+	}),
+});
+
 export default function App() {
 
 	useEffect(() => {
 		console.log("Before..")
 		debugger
 		console.log("After...")
+	});
+
+	useEffect(() => {
+		setLocalNotification()
+			.then(() => console.log("LOCAL NOTIFICATIONS SET"))
 	});
 
 	return (
